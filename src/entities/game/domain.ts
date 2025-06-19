@@ -1,4 +1,4 @@
-export type GameEntity = GameIdle | GameInProgressEntity | GameOverEntity | GameOverDrawEntity;
+export type GameEntity = GameIdleEntity | GameInProgressEntity | GameOverEntity | GameOverDrawEntity;
 
 export type GameIdleEntity = {
   id: string;
@@ -9,14 +9,14 @@ export type GameIdleEntity = {
 export type GameInProgressEntity = {
   id: string;
   players: PlayerEntity[];
-  field: Field[];
-  status: "in-progress";
+  field: Field;
+  status: "inProgress";
 };
 
 export type GameOverEntity = {
   id: string;
   players: PlayerEntity[];
-  field: Field[];
+  field: Field;
   status: "gameOver";
 
   isDraw: boolean;
@@ -26,7 +26,7 @@ export type GameOverEntity = {
 export type GameOverDrawEntity = {
   id: string;
   players: PlayerEntity[];
-  field: Field[];
+  field: Field;
   status: "gameOverDraw";
 };
 
