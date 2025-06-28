@@ -1,3 +1,4 @@
+import { left, right } from "@/shared/lib/either";
 import { PlayerEntity } from "../domain";
 import { gameRepository } from "../repositories/game";
 import cuid from "cuid"; 
@@ -19,10 +20,7 @@ export async function createGame(
   );
 
   if (isGameInIdleStatus) {
-    return {
-      type: "error",
-      error: "can-create-only-one-game",
-    } as const;
+    return left("can-create-only-one-game" as const);
   }
 
   const createdGame = await gameRepository.createGame({
@@ -31,8 +29,5 @@ export async function createGame(
     status: "idle",
   });
 
-  return {
-    type: "success",
-    value: createdGame,
-  } as const;
+  return right(createdGame);
 };
