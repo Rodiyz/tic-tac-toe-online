@@ -31,5 +31,8 @@ export async function createGame(
     status: "idle",
   });
 
-  return createdGame;
+  return {
+    type: "success",
+    value: createdGame,
+  } as const;
 };

@@ -1,21 +1,20 @@
 import { getIdleGames } from "@/entities/game/server";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/ui/card";
+import { Layout } from "../ui/layout";
+import { GameCard } from "../ui/game-card";
+import { CreateButton } from "../ui/create-button";
 
 export async function GamesList() {
   const games = await getIdleGames();
   return (
-    <div className="grid grid-cols-2 gap-4">
-      {games.map((game) => {
-        return (
-          <Card key={game.id}>
-            <CardHeader>
-              <CardTitle>Игра с {game.creator.login}</CardTitle>
-            </CardHeader>
-            
-            <CardContent>Рейтинг: {game.creator.rating}</CardContent>
-          </Card>
-        );
-      })}
-    </div>
+    <Layout
+    actions={<CreateButton action={} />}>
+      {games.map((game) => (
+        <GameCard 
+          key={game.id}
+          login={game.creator.login}
+          rating={game.creator.rating}
+        />
+      ))}
+    </Layout>
   );
 }
