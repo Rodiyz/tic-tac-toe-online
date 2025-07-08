@@ -19,7 +19,7 @@ export function SignUpForm() {
   return (
     <AuthFormLayout
       title="Регистрация"
-      discription="Заполните поля для создания аккаунта"
+      description="Заполните поля для создания аккаунта"
       action={action}
       fields={<AuthFields {...formState} />}
       actions={<SubmitButton isPending={isPending}>Зарегистрироваться</SubmitButton>}

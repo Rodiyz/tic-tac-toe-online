@@ -19,16 +19,16 @@ export function SignInForm() {
   return (
     <AuthFormLayout
       title="Войти"
-      discription="С возвращением, войдите в свой аккаунт"
+      description="С возвращением, войдите в свой аккаунт"
       action={action}
       fields={<AuthFields {...formState} />}
       actions={<SubmitButton isPending={isPending}>Войти</SubmitButton>}
       error={<ErrorMessage error={formState.errors?._errors} />}
       link={
         <ButtonLink
-          text="Уже есть аккаунт?"
-          linkText="Войти"
-          url={routes.signIn()}
+          text="Нет аккаунта?"
+          linkText="Зарегестрироваться"
+          url={routes.signUp()}
         />
       }
     />
