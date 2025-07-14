@@ -2,6 +2,7 @@
 
 import { createGame } from "@/entities/game/server";
 import { getCurrentUser } from "@/entities/user/server";
+import { routes } from "@/kernel/routes";
 import { left } from "@/shared/lib/either";
 import { redirect } from "next/navigation";
 
