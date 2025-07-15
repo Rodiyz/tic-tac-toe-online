@@ -9,7 +9,6 @@ export function useActionState<State, InitialState>(
   dispatch: () => void,
   isPending: boolean,
 ];
-
 export function useActionState<State, InitialState, Payload>(
   action: (state: Awaited<State>, payload: Payload) => State | Promise<State>,
   initialState: InitialState,

@@ -40,7 +40,6 @@ export const mapLeft = <R, L, L2 = unknown>(
   return either;
 };
 
-
 export const matchEither = <L, R, V>(
   either: Either<L, R>,
   mathers: {

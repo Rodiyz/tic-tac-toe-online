@@ -1,4 +1,4 @@
-'use server';
+"use server";
 
 import { createGame } from "@/entities/game/server";
 import { getCurrentUser } from "@/entities/user/server";
@@ -9,15 +9,15 @@ import { redirect } from "next/navigation";
 export const createGameAction = async () => {
   const user = await getCurrentUser();
 
-  if(!user){ 
+  if (!user) {
     return left("user-not-found" as const);
-  };
+  }
 
   const gameResult = await createGame(user);
 
-  if(gameResult.type === "right") {
-    redirect(`/game/${gameResult.value.id}`);
+  if (gameResult.type === "right") {
+    redirect(routes.game(gameResult.value.id));
   }
 
-  return gameResult
+  return gameResult;
 };

@@ -7,13 +7,13 @@ import { SubmitButton } from "../ui/submit-button";
 import { ButtonLink } from "../ui/button-link";
 import { ErrorMessage } from "../ui/error-message";
 import { useActionState } from "@/shared/lib/react";
-import { SignUnFormState, signUpAction } from "../actions/sign-up";
+import { SignInFormState, signInAction } from "../actions/sign-in";
 import { routes } from "@/kernel/routes";
 
 export function SignInForm() {
   const [formState, action, isPending] = useActionState(
-    signUpAction,
-    {} as SignUnFormState,
+    signInAction,
+    {} as SignInFormState,
   );
 
   return (
